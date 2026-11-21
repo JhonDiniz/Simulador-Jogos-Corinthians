@@ -1,0 +1,12 @@
+n= 5 semente=0 eventos= 1 prompt= 211 tok gerou= 106 tok | cabe em num_ctx=2048? sim | 7.7s
+n= 5 semente=1 eventos= 4 prompt= 229 tok gerou= 258 tok | cabe em num_ctx=2048? sim | 16.1s
+n= 5 semente=2 eventos= 6 prompt= 246 tok gerou= 348 tok | cabe em num_ctx=2048? sim | 20.6s
+n= 5 semente=3 eventos= 5 prompt= 241 tok gerou= 327 tok | cabe em num_ctx=2048? sim | 19.5s
+n=20 semente=0 eventos= 1 prompt= 616 tok gerou= 112 tok | cabe em num_ctx=4096? sim | 10.4s
+n=20 semente=1 eventos= 4 prompt= 634 tok gerou= 229 tok | cabe em num_ctx=4096? sim | 16.6s
+n=20 semente=2 eventos= 6 prompt= 651 tok gerou= 288 tok | cabe em num_ctx=4096? sim | 20.0s
+n=20 semente=3 eventos= 5 prompt= 646 tok gerou= 312 tok | cabe em num_ctx=4096? sim | 21.6s
+n=50 semente=0 eventos= 1 prompt=1424 tok gerou= 107 tok | cabe em num_ctx=8192? sim | 15.2s
+n=50 semente=1 eventos= 4 prompt=1442 tok gerou= 270 tok | cabe em num_ctx=8192? sim | 24.2s
+n=50 semente=2 eventos= 6 prompt=1459 tok gerou= 397 tok | cabe em num_ctx=8192? sim | 31.2s
+n=50 semente=3 eventos= 5 prompt=1454 tok gerou= 342 tok | cabe em num_ctx=8192? sim | 28.2s
