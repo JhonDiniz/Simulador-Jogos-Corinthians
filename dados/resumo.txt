@@ -1,9 +1,11 @@
-N    | tempo resposta s (med/max) | prompt s / gerar s (med)   | tokens prompt/gerado | tokens/s ger | RAM /api/ps MB | RAM sistema delta MB  
------+----------------------------+----------------------------+--------------------+--------------+----------------+-----------------------
-5    |     17.82 / 19.77          |      1.47 / 16.35          |     239 / 311       |         19.0 |   4778 (max  4778) |     2519 (max   2567)
-20   |     18.48 / 20.46          |      3.77 / 14.71          |     644 / 276       |         18.8 |   5036 (max  5036) |     2775 (max   2781)
-50   |     26.77 / 30.08          |      8.56 / 18.21          |    1452 / 336       |         18.5 |   5676 (max  5676) |     2353 (max   3454)
+N    | tempo resposta s (med/max) | prompt s / gerar s (med)   | prompt>ger | RAM sistema delta MB  
+-----+----------------------------+----------------------------+-----------+-----------------------
+5    |     16.24 / 21.34          |      1.44 / 14.80          | nao       |     1680 (max   2959)
+20   |     16.56 / 20.39          |      3.72 / 12.84          | nao       |     1050 (max   1677)
+50   |     24.68 / 30.09          |      8.49 / 16.20          | nao       |     2697 (max   3172)
+100  |     37.16 / 41.88          |     17.41 / 19.75          | nao       |     2129 (max   3519)
+150  |     53.45 / 59.74          |     30.04 / 23.41          | sim       |     2748 (max   3942)
 
-Ajuste linear: tempo_prompt(N) = 0.1579 * N + 0.653   (s)
-Tempo medio de gerar a narracao: 16.42 s
-Ponto de equilibrio estimado: 100 jogos de historico (EXTRAPOLADO: alem dos 50 jogos medidos)
+Ajuste linear: tempo_prompt(N) = 0.1945 * N + -0.425   (s)
+Tempo medio de gerar a narracao: 17.40 s
+Ponto de equilibrio estimado: 92 jogos de historico (dentro do intervalo medido)

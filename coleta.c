@@ -1,4 +1,4 @@
-/* coleta.c: roda as condicoes (5/20/50 jogos de historico) no Ollama e salva a saida bruta.
+/* coleta.c: roda as condicoes (5/20/50/100/150 jogos de historico) no Ollama e salva a saida bruta.
  *
  * Uso:   ./coleta jogos.csv [modelo]
  * Saida: dados/n<N>_s<SEMENTE>.json  (semente 0 = aquecimento, descartada na analise)
@@ -18,11 +18,11 @@
 
 #define URL "http://localhost:11434"
 
-static const int CONDICOES[] = {5, 20, 50};
-static const int NUM_CTX[]   = {2048, 4096, 8192};   /* cresce junto com o historico */
-static const int SEMENTES[]  = {0, 1, 2, 3};          /* 0 = aquecimento */
-#define N_COND 3
-#define N_SEM  4
+static const int CONDICOES[] = {5, 20, 50, 100, 150};
+static const int NUM_CTX[]   = {2048, 4096, 8192, 8192, 8192};   /* cresce junto com o historico (150 jogos ~4400 tok: precisa de 8192) */
+static const int SEMENTES[]  = {0, 1, 2, 3, 4, 5};    /* 0 = aquecimento; 1..5 = 5 repeticoes */
+#define N_COND 5
+#define N_SEM  6
 
 typedef struct { char *dados; size_t tam; } Buf;
 
@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
 
     static Jogo jogos[MAX_JOGOS];
     int total = carregar_csv(argv[1], jogos, MAX_JOGOS);
-    if (total < BASE_JOGOS) { fprintf(stderr, "preciso de >= %d jogos, li %d\n", BASE_JOGOS, total); return 1; }
+    if (total < CONDICOES[N_COND - 1]) { fprintf(stderr, "preciso de >= %d jogos, li %d\n", CONDICOES[N_COND - 1], total); return 1; }
     const Jogo *base = jogos + (total - BASE_JOGOS);   /* base fixa do Monte Carlo */
 
     mkdir("dados", 0755);
